@@ -52,12 +52,14 @@ NEW FILE
 ABCD
 EFGH
 IJKL
-LMNO
-PQRST
+MNOP
+QRST
 UVWX
 YZ
 *|
 ```
+
+>*It's ok if you did not enter text exactly like this or if you have some typos.*
 
 ## Viewing text
 
@@ -72,8 +74,8 @@ NEW FILE
 ABCD
 EFGH
 IJKL
-LMNO
-PQRST
+MNOP
+QRST
 UVWX
 YZ▵
 ```
@@ -89,8 +91,8 @@ NEW FILE
 ▵ABCD
  EFGH
  IJKL
- LMNO
- PQRST
+ MNOP
+ QRST
  UVWX
  YZ
 ```
@@ -104,8 +106,8 @@ Now type the command `#T`. This will display all of the characters of the file s
 ABCD
 EFGH
 IJKL
-LMNOP
-PQRST
+MNOP
+QRST
 UVWX
 YZ
 *|
@@ -122,3 +124,7 @@ A>|
 ```
 
 > *Now that the user has exited ED, CP/M has resumed the `>` prompt from before.*
+
+Lastly, write the command `DIR` and press enter to check the contents of the disk. Look closely and among the entries you should see `THIS     TXT`, representing the file `THIS.TXT`.
+
+And that concludes creating, editing and saving a file using ED in CP/M. However, this is still just scratching the surface. Next, go to [this tutorial](Exploring_ED.md) on exploring the other commands of ED.
