@@ -18,5 +18,4 @@ Along with knowing about the available registers, a programmer must also underst
 
 |Register name|Register purpose|
 |-----------|-----------|
-
-- The **A register**, also known as the **accumulator**, provides one input to the **arithmetic/logic unit (ALU)**. The other input comes from the data bus.
+|A          | The **A register**, also known as the **accumulator**, provides one input to the **arithmetic/logic unit (ALU)**. The other input comes from the data bus.|
