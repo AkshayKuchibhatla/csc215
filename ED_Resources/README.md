@@ -6,6 +6,7 @@ Here are the sections:
 
 * [Introduction to ED](Ed_Intro.md)
 * [Writing a basic file in ED](Write_a_File_in_ED.md)
+* [Exploring basic functions of ED](Exploring_ED.md)
 
 Additionally, here are some online resources for ED:
 
