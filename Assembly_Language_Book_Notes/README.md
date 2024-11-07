@@ -12,3 +12,4 @@ Chapters
 * [Chapter 5: Organization Of CP/M](ch_5/ch_5.md)
 * [Chapter 6: Interfacing With CP/M](ch_6/ch_6.md)
 * [Chapter 7: Assembly Language Programming](ch_7/ch_7.md)
+* [Chapter 9: Register Usage In the 8080](ch_9/ch_9.md)
