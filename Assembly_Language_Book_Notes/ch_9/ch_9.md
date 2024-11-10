@@ -34,7 +34,7 @@ Here is a diagram showing register organization and data paths in the 8080:
 
 Here is another diagram showing the bits of the flag register:
 
-[Flag register diagram](ch_9_image2.png)
+![Flag register diagram](ch_9_image2.png)
 
 ### Extra Terminology
 
