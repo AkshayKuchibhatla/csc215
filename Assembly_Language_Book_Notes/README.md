@@ -13,3 +13,4 @@ Chapters
 * [Chapter 6: Interfacing With CP/M](ch_6/ch_6.md)
 * [Chapter 7: Assembly Language Programming](ch_7/ch_7.md)
 * [Chapter 9: Register Usage In the 8080](ch_9/ch_9.md)
+* [Chapter 10: Preserving the User's Environment](ch_10/ch_10.md)
