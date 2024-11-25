@@ -1,0 +1,23 @@
+; Routine to display a message pointed to by the stack
+SPMSG:  XTHL               ; Get "RETURN ADDRESS" to HL
+        XRA A              ; Clear flags and accumulator
+        ADD M              ; Get one message character
+        INX H              ; Point to the next character
+        XTHL               ; Restore stack for return
+        RZ                 ; Return if done (zero)
+        CALL C0            ; Else display character
+        JMP SPMSG          ; And do another
+
+; Routine to get Yes or No from the console
+GETYN:  CALL SPMSG         ; Prompt for input
+        DB ' (Y/N)?: ', 0  ; Message
+        CALL C1MSG         ; Get input line
+        CALL CCRLF         ; Echo carriage return
+        LDA INBUF+2        ; First character only
+        ANI 01011111B      ; Convert lower case to upper
+        CPI 'Y'            ; Compare with 'Y'
+        RZ                 ; Return with zero = YES
+        CPI 'N'            ; Compare with 'N'
+        JNZ GETYN          ; Else try again
+        CPI 0              ; Reset zero flag
+        RET                ; And all done
