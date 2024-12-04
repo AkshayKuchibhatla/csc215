@@ -19,4 +19,3 @@ Both functions run through the same steps:
 These two functions work together to create the program.
 
 The functions differ in one way, though: While CI processes the value receieved *after* calling BDOS by masking the high-order bit, CO processes the value *before* calling BDOS by moving it from the accumulator to the (E) register.
-

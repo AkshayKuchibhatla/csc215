@@ -16,7 +16,6 @@ RBUFF   EQU     10  ; READ CON: LINE FUNCTION
 RBOOT   EQU     0    ; REBOOT CP/M
 BDOS    EQU     5    ; SYSTEM CALL ENTRY
 TPA     EQU     100H ; DEFINE TPA
-
 		ORG		TPA	 ; TELLS CP/M TO START AT TPA ADDRESS
 
 START:	LXI     SP,STAK ; SET UP USER STACK
@@ -27,7 +26,10 @@ START1:	CALL    CCRLF   ; START A NEW LINE
 PMAN:	PUSH	B	; SAVE REGISTERS
 		PUSH	D
 		PUSH	H
-		LXI 	H,LINE1
+		CALL	SPMSG
+		LINE1
+		CALL	SPMSG
+		LINE2
 FINISH: PUSH	H
 		PUSH	D
 		PUSH	B
@@ -52,11 +54,22 @@ CO:		PUSH	B	; SAVE REGISTERS
 		POP		B
 		RET
 
+TWOCR:  CALL    CCRLF ; PRINTS TWO CARRIAGE RETURNS
+
 ; OUTPUT CARRIAGE RETURN TO CON:
 CCRLF:	MVI		A,CR	; PUT CARRIAGE RETURN CHAR IN (A)
 		CALL	CO		; PRINT IT TO CON:
 		MVI		A,LF	; DO THE SAME WITH LINE FEED
 		JMP		CO
+
+SPMSG:  XTHL               ; Get "RETURN ADDRESS" to HL
+        XRA     A          ; Clear flags and accumulator
+        ADD     M          ; Get one message character
+        INX     H          ; Point to the next character
+        XTHL               ; Restore stack for return
+        RZ                 ; Return if done (zero)
+        CALL    CO         ; Else display character
+        JMP     SPMSG      ; And do another
 
 ; PRINT MESSAGE TO CON:
 COMSG:	MOV		A,M		; MOV CHARACTER INTO (A)
@@ -78,4 +91,12 @@ CIMSG:	PUSH	B	; SAVE REGISTERS
 		MVI		C,RBUFF; SET UP READ BUFFER
 		CALL	BDOS   ; 
 
+INBUF:  DS      83      ; LINE INPUT BUFFER
+        CALL    CCRLF   ; ADD CR, LF
+        JMP     START2  ; KEEP GOING
 
+; SET UP STACK SPACE AT THE END OF PROGRAM
+        DS      64      ; 40H LOCATIONS (64 IN DEC)
+STAK:   DB      0       ; TOP OF STACK
+
+        END
