@@ -30,10 +30,12 @@ main()
 
     /*Then, copy over the input without extra
     spaces:*/
-    char newUsrIn[100];
+    char newUsrIn[100]; /*New array*/
+    for (j = 0; j < 100; j++)
+        newUsrIn[j] = 0; /*Fill with zeros*/
     e = 0; /*Index counter for new array*/
     /*j is the index counter for old array*/
-    for (j = 0; usrIn[j] != '\0'; j++)
+    for (j = 0; usrIn[j] != 0; j++)
     {
         newUsrIn[e] = usrIn[j];
         e++;
@@ -45,6 +47,8 @@ main()
             {
                 j++;
             }
+            /*Keep placing chars in the new
+            array*/
             newUsrIn[e] = usrIn[j];
             e++;
         }
@@ -54,3 +58,4 @@ main()
     for (j = 0; j < 100; j++)
         printf("%c", newUsrIn[j]);
 }
+/*word word  word   word*/
