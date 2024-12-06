@@ -15,7 +15,7 @@ int *argv[];{
     } else {
         while (--argc > 0) {
             if ((fptr = fopen(*++argv, "r")) == NULL) {
-                fprintf(stderr, "cat: can't open %s\n", *argv);
+                fprintf(stderr, "charnums: can't open %s\n", *argv);
                 exit(1);
             } else {
                 numChars(fptr);
