@@ -1,6 +1,5 @@
 #include <stdio.h>
 #define EOF -1
-#define ESC 27
 
 void reverseLine(s, size)
 char s[]; 
