@@ -9,31 +9,38 @@ int size; {
     half = size >> 1;
     upper = size - 1;
     lower = 0;
-    temp = s[upper];
-    s[upper] = s[lower];
-    s[lower] = temp;
+    for (lower = 0; lower < half; lower++) {
+        upper = size - (lower + 1);
+        temp = s[upper];
+        s[upper] = s[lower];
+        s[lower] = temp;
+    }
 }
 
 main() { /*Reverses user input one line at a time*/
     char linebuff[100];
     int e,c;
     int nOfChars;
-    for (e = 0; e < 100; e++) linebuff[e] = 0;
 
-    e = 0;
-    nOfChars = 0;
-    while (e < 100) {
-        c = getchar();
-        if (c == '\n') break;
-        if (c == 8) continue;
-        if (c == EOF || c == ESC) exit(0);
-        linebuff[e] = c;
-        e++;
-        nOfChars++;
+    while (1) {
+        for (e = 0; e < 100; e++) linebuff[e] = 0;
+        e = 0;
+        nOfChars = 0;
+        while (e < 100) {
+            c = getchar();
+            if (c == '\n') break;
+            if (c == 8) continue;
+            if (c == EOF || c == ESC) exit(0);
+            linebuff[e] = c;
+            e++;
+            nOfChars++;
+        }
+        printf("%c", "\n");
+        reverse(linebuff, nOfChars);
+
+        for (e = 0; linebuff[e] != '\0'; e++) 
+            printf("%c", linebuff[e]);
+        
+        printf("%s", "\n\n");
     }
-    printf("%s", "\n");
-    reverse(linebuff, nOfChars);
-
-    for (e = 0; linebuff[e] != '\0'; e++) 
-        printf("%c", linebuff[e]);
 }
