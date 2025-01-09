@@ -82,7 +82,7 @@ END_TESTING() {
     (tests == 1) ?  printf("\t1 test.\n") : printf("\t%d tests.\n", tests);
     printf("\t\033[0;32m%d passed\033[0;37m, \033[0;31m %d failed\033[0;37m.", passedTests, failedTests);
 
-    (asserts == 1) ? printf("\n\n1 assertion.\n") : printf("\n\n\t%d assertions.\n", asserts);
+    (asserts == 1) ? printf("\n\n\t1 assertion.\n") : printf("\n\n\t%d assertions.\n", asserts);
     printf("\t\033[0;32m%d passed\033[0;37m, \033[0;31m %d failed\033[0;37m.", passAsserts, failedAsserts);
     printf("\n\t====================================\n");
 }
